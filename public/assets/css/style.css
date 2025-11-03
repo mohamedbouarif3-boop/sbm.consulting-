@@ -1,1 +1,211 @@
+/* --- 1. Variables & Reset --- */
+:root {
+    /* Couleurs de la charte SBM Consulting */
+    --color-primary: #004A7F; /* Bleu Profond (Confiance, Stabilité) */
+    --color-secondary: #00BFFF; /* Cyan Vif (Énergie, Modernité) */
+    --color-accent: #FF8C00; /* Orange (Dynamisme, Appel à l'Action) */
+    --color-text-dark: #333333;
+    --color-text-light: #F4F4F4;
+    --color-background: #FFFFFF;
+    --color-light-gray: #F9F9F9;
+}
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Remplacer par une police professionnelle (ex: 'Roboto' ou 'Poppins') */
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: var(--color-background);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
+/* Titres */
+h1, h2, h3, h4 {
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: var(--color-primary);
+}
+
+/* --- 2. Styles Généraux (Boutons) --- */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, opacity 0.3s;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--color-accent); /* Bouton principal en Orange Dynamique */
+    color: var(--color-background);
+    border: 2px solid var(--color-accent);
+}
+
+.btn-primary:hover {
+    background-color: #FF7F00; /* Orange légèrement plus foncé au survol */
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-light-gray);
+}
+
+
+/* --- 3. Header et Navigation --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--color-background);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.logo img {
+    height: 40px; /* Ajuster selon la taille réelle de votre logo */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    color: var(--color-text-dark);
+    font-weight: 500;
+}
+
+.main-nav a.active,
+.main-nav a:hover {
+    color: var(--color-secondary);
+}
+
+.main-nav .cta-nav {
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+/* --- 4. Footer --- */
+.footer {
+    background-color: var(--color-primary); /* Bleu Profond pour la stabilité */
+    color: var(--color-text-light);
+    padding: 30px 5%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer a {
+    color: var(--color-text-light);
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    color: var(--color-secondary);
+}
+
+
+/* --- 5. Section Hero (Le message clé "Dormez sur vos deux oreilles") --- */
+.hero-section {
+    background-color: var(--color-light-gray);
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.hero-section h2 {
+    font-size: 1.5rem;
+    color: var(--color-secondary); /* Le bénéfice clé en Cyan Énergie */
+    margin-bottom: 30px;
+}
+
+/* --- 6. Section Les 3 Piliers --- */
+.pillars-section {
+    padding: 50px 5%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.pillars-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap; /* Pour la réactivité */
+}
+
+.pillar {
+    flex: 1;
+    min-width: 280px;
+    padding: 30px;
+    background-color: var(--color-background);
+    border: 1px solid #EAEAEA;
+    border-top: 5px solid var(--color-secondary); /* Ligne d'énergie en haut */
+    border-radius: 8px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pillar:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.pillar h4 {
+    color: var(--color-primary);
+    font-size: 1.3rem;
+    margin-top: 0;
+}
+
+/* --- 7. Section CTA Secondaire --- */
+.cta-secondary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 40px 5%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.cta-secondary p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cta-secondary .btn-secondary {
+    color: var(--color-background); /* Texte du bouton en blanc */
+    border-color: var(--color-background); /* Bordure en blanc */
+}
+
+.cta-secondary .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
