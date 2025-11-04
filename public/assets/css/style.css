@@ -1,6 +1,5 @@
 /* --- 1. Variables & Reset --- */
 :root {
-    /* Couleurs de la charte SBM Consulting */
     --color-primary: #004A7F; /* Bleu Profond (Confiance, Stabilité) */
     --color-secondary: #00BFFF; /* Cyan Vif (Énergie, Modernité) */
     --color-accent: #FF8C00; /* Orange (Dynamisme, Appel à l'Action) */
@@ -17,7 +16,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif; /* Remplacer par une police professionnelle (ex: 'Roboto' ou 'Poppins') */
+    font-family: Arial, sans-serif;
     line-height: 1.6;
     color: var(--color-text-dark);
     background-color: var(--color-background);
@@ -33,7 +32,6 @@ a:hover {
     color: var(--color-secondary);
 }
 
-/* Titres */
 h1, h2, h3, h4 {
     margin-bottom: 1rem;
     line-height: 1.2;
@@ -52,13 +50,13 @@ h1, h2, h3, h4 {
 }
 
 .btn-primary {
-    background-color: var(--color-accent); /* Bouton principal en Orange Dynamique */
+    background-color: var(--color-accent);
     color: var(--color-background);
     border: 2px solid var(--color-accent);
 }
 
 .btn-primary:hover {
-    background-color: #FF7F00; /* Orange légèrement plus foncé au survol */
+    background-color: #FF7F00;
     opacity: 0.9;
 }
 
@@ -72,7 +70,6 @@ h1, h2, h3, h4 {
     background-color: var(--color-light-gray);
 }
 
-
 /* --- 3. Header et Navigation --- */
 .header {
     display: flex;
@@ -84,7 +81,7 @@ h1, h2, h3, h4 {
 }
 
 .logo img {
-    height: 40px; /* Ajuster selon la taille réelle de votre logo */
+    height: 40px; 
 }
 
 .main-nav ul {
@@ -108,9 +105,17 @@ h1, h2, h3, h4 {
     font-weight: bold;
 }
 
+.menu-toggle {
+    display: none; /* Caché par défaut sur les grands écrans */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--color-primary);
+    z-index: 1001; 
+}
+
 /* --- 4. Footer --- */
 .footer {
-    background-color: var(--color-primary); /* Bleu Profond pour la stabilité */
+    background-color: var(--color-primary);
     color: var(--color-text-light);
     padding: 30px 5%;
     text-align: center;
@@ -126,8 +131,7 @@ h1, h2, h3, h4 {
     color: var(--color-secondary);
 }
 
-
-/* --- 5. Section Hero (Le message clé "Dormez sur vos deux oreilles") --- */
+/* --- 5. Section Hero --- */
 .hero-section {
     background-color: var(--color-light-gray);
     padding: 80px 5%;
@@ -142,7 +146,7 @@ h1, h2, h3, h4 {
 
 .hero-section h2 {
     font-size: 1.5rem;
-    color: var(--color-secondary); /* Le bénéfice clé en Cyan Énergie */
+    color: var(--color-secondary); 
     margin-bottom: 30px;
 }
 
@@ -161,7 +165,7 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: space-around;
     gap: 30px;
-    flex-wrap: wrap; /* Pour la réactivité */
+    flex-wrap: wrap; 
 }
 
 .pillar {
@@ -170,7 +174,7 @@ h1, h2, h3, h4 {
     padding: 30px;
     background-color: var(--color-background);
     border: 1px solid #EAEAEA;
-    border-top: 5px solid var(--color-secondary); /* Ligne d'énergie en haut */
+    border-top: 5px solid var(--color-secondary);
     border-radius: 8px;
     text-align: left;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -202,10 +206,84 @@ h1, h2, h3, h4 {
 }
 
 .cta-secondary .btn-secondary {
-    color: var(--color-background); /* Texte du bouton en blanc */
-    border-color: var(--color-background); /* Bordure en blanc */
+    color: var(--color-background);
+    border-color: var(--color-background);
 }
 
 .cta-secondary .btn-secondary:hover {
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* ======================================= */
+/* ====== MEDIA QUERIES (RÉACTIVITÉ) ===== */
+/* ======================================= */
+
+/* Mobile et Tablettes (Écrans de max 768px de large) */
+@media (max-width: 768px) {
+    
+    /* 1. TYPOGRAPHIE ET ESPACEMENTS */
+    h1 {
+        font-size: 2rem; 
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    .hero-section {
+        padding: 50px 5%;
+    }
+    
+    /* 2. NAVIGATION */
+    .main-nav {
+        display: none; /* Caché par défaut, sera affiché par JS */
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background-color: var(--color-background);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+    
+    .menu-toggle {
+        display: block; /* Afficher le bouton hamburger */
+    }
+    
+    .main-nav.open { 
+        display: block; 
+    } 
+    
+    .main-nav ul {
+        flex-direction: column; 
+        gap: 0; 
+        padding: 10px 0;
+    }
+    
+    .main-nav ul li {
+        border-bottom: 1px solid var(--color-light-gray);
+    }
+    
+    .main-nav a {
+        display: block;
+        padding: 15px 20px;
+        text-align: center;
+    }
+
+    /* 3. LES 3 PILIERS */
+    .pillars-container {
+        flex-direction: column; 
+        gap: 20px;
+    }
+    
+    .pillar {
+        min-width: 100%;
+    }
+    
+    /* 4. SECTIONS À PROPOS et Contact (pour simplifier) */
+    .story-block,
+    .contact-form-container > div:last-child {
+        flex-direction: column !important; 
+        text-align: center;
+    }
+    
 }
