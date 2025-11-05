@@ -246,7 +246,32 @@ h1, h2, h3, h4 {
     font-size: 1.4rem;
     margin-top: 0;
 }
+/* --- Style pour les Icônes des 3 Piliers --- */
+.pillar i {
+    font-size: 2.5rem;
+    color: var(--color-secondary); /* Vert-Bleu Émeraude pour l'énergie */
+    margin-bottom: 15px;
+    display: block; /* Pour centrer si besoin */
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border: 2px solid var(--color-secondary);
+    border-radius: 50%; /* Pour l'effet "pastille" techno */
+    transition: all 0.3s;
+}
 
+.pillar:hover i {
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+    border-color: var(--color-secondary);
+}
+/* Aligner l'icône à gauche (comme le texte des piliers) */
+.pillar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 /* --- 6. Section CTA Secondaire --- */
 .cta-secondary {
     background-color: var(--color-primary);
