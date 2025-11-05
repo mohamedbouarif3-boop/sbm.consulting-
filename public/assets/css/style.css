@@ -1,13 +1,16 @@
 /* --- 1. Variables & Reset --- */
 :root {
-    --color-primary: #004A7F; /* Bleu Profond (Confiance, Stabilité) */
-    --color-secondary: #00BFFF; /* Cyan Vif (Énergie, Modernité) */
-    --color-accent: #FF8C00; /* Orange (Dynamisme, Appel à l'Action) */
+    /* Couleurs de la charte SBM Consulting (Bleu & Vert) */
+    --color-primary: #004A7F;     /* Bleu Stabilité (Profond) */
+    --color-secondary: #00B1A7;   /* Vert-Bleu Émeraude (Croissance, Calme) - Notre nouvelle couleur d'énergie */
+    --color-accent: #38C172;      /* Vert Vif (Action, Succès, Économie) - Nouvelle couleur pour les boutons */
     --color-text-dark: #333333;
     --color-text-light: #F4F4F4;
     --color-background: #FFFFFF;
     --color-light-gray: #F9F9F9;
 }
+
+/* Le reste du CSS... */
 
 * {
     margin: 0;
