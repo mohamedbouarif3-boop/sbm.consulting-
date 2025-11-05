@@ -1,259 +1,109 @@
-/* --- 1. Variables & Reset --- */
-:root {
-    /* Palette : Bleu (Stabilité) & Vert (Croissance/Action) */
-    --color-primary: #004A7F;     
-    --color-secondary: #00B1A7;   
-    --color-accent: #38C172;      
-    --color-text-dark: #333333;
-    --color-text-light: #F4F4F4;
-    --color-background: #FFFFFF;
-    --color-light-gray: #F9F9F9;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBM Consulting | Courtage en Énergie - Dormez sur vos deux oreilles</title>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <meta name="description" content="SBM Consulting : Sécurisez et optimisez vos contrats d'énergie professionnelle. Renégociation, service juridique et accompagnement continu.">
+    
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script> 
+    
+</head>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<body>
+    
+    <header class="header">
+        <div class="logo">
+            <img src="assets/images/logo.svg" alt="SBM Consulting Logo">
+        </div>
+        
+        <div class="menu-toggle" id="menu-toggle-btn">☰</div> 
 
-body {
-    font-family: 'Roboto', Arial, sans-serif;
-    line-height: 1.6;
-    color: var(--color-text-dark);
-    background-color: var(--color-background);
-}
+        <nav class="main-nav" id="main-navigation">
+            <ul>
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="src/pages/services.html">Nos Services</a></li>
+                <li><a href="src/pages/a-propos.html">Qui Sommes-Nous</a></li>
+                <li><a href="src/pages/blog.html">Blog & Actualités</a></li>
+                <li><a href="src/pages/contact.html" class="cta-nav">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-a {
-    text-decoration: none;
-    color: var(--color-primary);
-    transition: color 0.3s;
-}
-
-a:hover {
-    color: var(--color-secondary);
-}
-
-h1, h2, h3, h4 {
-    margin-bottom: 1rem;
-    line-height: 1.2;
-    color: var(--color-primary);
-}
-
-/* --- 2. Styles Généraux et Boutons --- */
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s, opacity 0.3s;
-    text-align: center;
-}
-.btn-primary {
-    background-color: var(--color-accent); 
-    color: var(--color-background);
-    border: 2px solid var(--color-accent);
-}
-.btn-primary:hover {
-    background-color: #2D9657; 
-    opacity: 0.9;
-}
-.btn-secondary {
-    background-color: transparent;
-    color: var(--color-text-light); 
-    border: 2px solid var(--color-text-light);
-}
-.btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* --- 3. Header et Navigation --- */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background-color: var(--color-background);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.logo img {
-    height: 60px; /* Taille ajustée du logo */
-    max-height: 60px;
-    width: auto;
-}
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-.main-nav a {
-    color: var(--color-text-dark);
-    font-weight: 500;
-}
-.menu-toggle {
-    display: none; 
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: var(--color-primary);
-    z-index: 1001; 
-}
-
-/* --- 4. Section Hero Split-Screen --- */
-.hero-split {
-    display: flex;
-    min-height: 80vh;
-    width: 100%;
-    background-color: var(--color-light-gray);
-}
-.hero-left {
-    flex: 1; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 5%;
-}
-.hero-right {
-    flex: 1; 
-    background-size: cover;
-    background-position: center;
-    min-height: 400px;
-}
-.hero-content-inner {
-    max-width: 550px; 
-    text-align: left;
-}
-.accent-title {
-    font-size: 3.2rem;
-    color: var(--color-primary);
-    margin-bottom: 10px;
-    line-height: 1.1;
-}
-.hero-left h2 {
-    font-size: 1.5rem;
-    color: var(--color-secondary);
-    margin-bottom: 20px;
-}
-.intro-text {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-.btn-large {
-    padding: 15px 30px;
-    font-size: 1.1rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
+    <main>
+        <section class="hero-split">
+            
+            <div class="hero-left">
+                <div class="hero-content-inner">
+                    <h1 class="accent-title">Dormez sur vos deux oreilles.</h1>
+                    <h2>SBM Consulting sécurise et optimise l'intégralité de votre budget énergétique professionnel.</h2>
+                    
+                    <p class="intro-text">
+                        Notre engagement est votre tranquillité. Nous allons au-delà de la simple renégociation en vous offrant un service juridique dédié et un suivi continu. Fini le stress des litiges et des fluctuations de prix.
+                    </p>
+                    
+                    <a href="src/pages/contact.html" class="btn btn-primary btn-large">
+                        Sécuriser mon Contrat Énergétique Maintenant
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-right" style="background-image: url('assets/images/hero-energy-1.jpg');">
+                </div>
+            
+        </section>
+        
+        <div class="separator"></div> 
 
 
-/* --- 5. Séparateur d'Énergie --- */
-.separator {
-    width: 100%;
-    height: 3px; 
-    background-color: var(--color-accent); 
-    margin: 0 auto; 
-}
+        <section class="pillars-section">
+            <h3 class="section-title">Notre Engagement : 3 Piliers pour Votre Tranquillité</h3>
+            <div class="pillars-container">
+                
+                <article class="pillar reveal-item"> 
+                    <i class="fas fa-hand-holding-dollar"></i> 
+                    <h4>Optimisation des Coûts</h4>
+                    <p>Accédez aux meilleures offres du marché et réalisez des économies garanties sur vos factures d'énergie sans effort.</p>
+                </article>
 
+                <article class="pillar reveal-item" data-delay="150"> 
+                    <i class="fas fa-shield-alt"></i> 
+                    <h4>Sécurité Juridique Intégrée</h4>
+                    <p>Un bouclier légal spécialisé contre les litiges. Vos contrats sont sécurisés, vos droits sont défendus. Zéro mauvaise surprise.</p>
+                </article>
 
-/* --- 6. Section Les 3 Piliers (SANS CHEVAUCHEMENT + ICÔNES) --- */
-.pillars-section {
-    padding: 50px 5%;
-    padding-top: 50px; 
-    text-align: center;
-    background-color: var(--color-light-gray); 
-}
-.pillars-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 30px;
-    flex-wrap: wrap; 
-    margin-top: 0px; 
-    position: relative;
-    z-index: 5;
-}
-.pillar {
-    flex: 1;
-    min-width: 280px;
-    padding: 30px;
-    background-color: var(--color-background);
-    border-top: 5px solid var(--color-secondary); 
-    border-radius: 12px; 
-    text-align: left;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-.pillar:hover {
-    transform: translateY(-10px); 
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); 
-}
+                <article class="pillar reveal-item" data-delay="300"> 
+                    <i class="fas fa-headset"></i> 
+                    <h4>Proximité & Suivi Continu</h4>
+                    <p>Un expert dédié à votre écoute, pour une veille constante du marché et un accompagnement tout au long de la durée du contrat.</p>
+                </article>
+            </div>
+        </section>
 
-/* --- 7. Style pour les Icônes des 3 Piliers --- */
-.pillar i {
-    font-size: 2.5rem;
-    color: var(--color-secondary); 
-    margin-bottom: 15px;
-    display: block; 
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    text-align: center;
-    border: 2px solid var(--color-secondary);
-    border-radius: 50%; 
-    transition: all 0.3s;
-}
-.pillar:hover i {
-    background-color: var(--color-secondary);
-    color: var(--color-background);
-    border-color: var(--color-secondary);
-}
+        <section class="cta-secondary" id="reveal-cta">
+            <p>Prêt à transformer vos contraintes énergétiques en avantage compétitif ?</p>
+            <a href="src/pages/contact.html" class="btn btn-secondary">Demander un Devis Gratuit</a>
+        </section>
 
-/* --- 8. Section CTA Secondaire et Footer --- */
-.cta-secondary {
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
-    padding: 40px 5%;
-    text-align: center;
-    margin-top: 50px;
-}
-.footer {
-    background-color: #111; 
-    color: var(--color-text-light);
-    padding: 30px 5%;
-    text-align: center;
-}
+    </main>
 
-/* ======================================= */
-/* ====== MEDIA QUERIES (RÉACTIVITÉ) ===== */
-/* ======================================= */
+    <footer class="footer">
+        <div class="footer-info">
+            <p>&copy; 2025 SBM Consulting. Tous droits réservés.</p>
+            <nav class="footer-links">
+                <a href="#">Mentions Légales</a> | 
+                <a href="#">Politique de Confidentialité</a>
+            </nav>
+        </div>
+    </footer>
+    
+    <script src="assets/js/main.js"></script>
 
-@media (max-width: 992px) {
-    /* Split-Screen passe en colonne */
-    .hero-split {
-        flex-direction: column; 
-    }
-    .hero-left {
-        order: 2; 
-    }
-    .hero-right {
-        order: 1; 
-        height: 300px;
-    }
-    .accent-title {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Styles Mobile... */
-    .pillars-container {
-        flex-direction: column; 
-        gap: 20px;
-        margin-top: 20px; 
-    }
-    .main-nav { display: none; width: 100%; position: absolute; top: 70px; left: 0; background-color: var(--color-background); box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 1000; }
-    .menu-toggle { display: block; }
-    .main-nav.open { display: block; } 
-    .main-nav ul { flex-direction: column; gap: 0; padding: 10px 0; }
-}
+</body>
+</html>
