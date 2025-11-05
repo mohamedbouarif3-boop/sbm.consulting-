@@ -83,8 +83,8 @@ h1, h2, h3, h4 {
 }
 
 .logo img {
-    height: 60px; /* Augmenté à 60px pour qu'il soit bien visible */
-    max-height: 60px; /* Garantit qu'il ne dépasse pas */
+    height: 100px; /* Augmenté à 60px pour qu'il soit bien visible */
+    max-height: 100px; /* Garantit qu'il ne dépasse pas */
     width: auto;
 }
 
