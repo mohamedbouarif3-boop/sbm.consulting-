@@ -135,23 +135,44 @@ h1, h2, h3, h4 {
 }
 
 /* --- 5. Section Hero --- */
-.hero-section {
-    background-color: var(--color-light-gray);
-    padding: 80px 5%;
-    text-align: center;
-}
+<main>
+        <section class="hero-carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('assets/images/hero-energy-1.jpg');">
+                    <div class="hero-content">
+                        <h1>Dormez sur vos deux oreilles.</h1>
+                        <h2>SBM Consulting sécurise et optimise l'intégralité de votre budget énergétique professionnel.</h2>
+                        <a href="src/pages/contact.html" class="btn btn-primary">Sécuriser mon Contrat Énergétique</a>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('assets/images/hero-energy-2.jpg');">
+                    <div class="hero-content">
+                        <h1>Innovez. Nous veillons sur votre énergie.</h1>
+                        <h2>Avec SBM Consulting, transformez la complexité énergétique en avantage compétitif.</h2>
+                        <a href="src/pages/services.html" class="btn btn-primary">Découvrir nos Solutions</a>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('assets/images/hero-energy-3.jpg');">
+                    <div class="hero-content">
+                        <h1>Plus de 10 ans d'expertise à votre service.</h1>
+                        <h2>Nos 3 associés passionnés vous offrent une protection juridique et un suivi sans faille.</h2>
+                        <a href="src/pages/a-propos.html" class="btn btn-primary">Rencontrer l'équipe</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </section>
+        
+        <section class="pillars-section">
+            </section>
 
-.hero-section h1 {
-    font-size: 3rem;
-    color: var(--color-primary);
-    margin-bottom: 10px;
-}
-
-.hero-section h2 {
-    font-size: 1.5rem;
-    color: var(--color-secondary); 
-    margin-bottom: 30px;
-}
+        <section class="cta-secondary">
+            </section>
+    </main>
 
 /* --- 6. Section Les 3 Piliers --- */
 .pillars-section {
