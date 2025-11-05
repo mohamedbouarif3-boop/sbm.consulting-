@@ -1,16 +1,14 @@
 /* --- 1. Variables & Reset --- */
 :root {
-    /* Couleurs de la charte SBM Consulting (Bleu & Vert) */
+    /* NOUVELLE Palette : Bleu (Stabilité) & Vert (Croissance/Action) */
     --color-primary: #004A7F;     /* Bleu Stabilité (Profond) */
-    --color-secondary: #00B1A7;   /* Vert-Bleu Émeraude (Croissance, Calme) - Notre nouvelle couleur d'énergie */
-    --color-accent: #38C172;      /* Vert Vif (Action, Succès, Économie) - Nouvelle couleur pour les boutons */
+    --color-secondary: #00B1A7;   /* Vert-Bleu Émeraude (Croissance, Calme) */
+    --color-accent: #38C172;      /* Vert Vif (Action, Succès, Économie) - NOUVEAU CTA */
     --color-text-dark: #333333;
     --color-text-light: #F4F4F4;
     --color-background: #FFFFFF;
     --color-light-gray: #F9F9F9;
 }
-
-/* Le reste du CSS... */
 
 * {
     margin: 0;
@@ -19,7 +17,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     line-height: 1.6;
     color: var(--color-text-dark);
     background-color: var(--color-background);
@@ -53,24 +51,24 @@ h1, h2, h3, h4 {
 }
 
 .btn-primary {
-    background-color: var(--color-accent);
+    background-color: var(--color-accent); /* Vert Vif */
     color: var(--color-background);
     border: 2px solid var(--color-accent);
 }
 
 .btn-primary:hover {
-    background-color: #FF7F00;
+    background-color: #2D9657; /* Vert légèrement plus foncé */
     opacity: 0.9;
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
+    color: var(--color-text-light); /* Texte blanc sur fond bleu foncé (CTA secondaire) */
+    border: 2px solid var(--color-text-light);
 }
 
 .btn-secondary:hover {
-    background-color: var(--color-light-gray);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* --- 3. Header et Navigation --- */
@@ -80,7 +78,7 @@ h1, h2, h3, h4 {
     align-items: center;
     padding: 15px 5%;
     background-color: var(--color-background);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .logo img {
@@ -109,75 +107,106 @@ h1, h2, h3, h4 {
 }
 
 .menu-toggle {
-    display: none; /* Caché par défaut sur les grands écrans */
+    display: none; 
     font-size: 1.8rem;
     cursor: pointer;
     color: var(--color-primary);
     z-index: 1001; 
 }
 
-/* --- 4. Footer --- */
-.footer {
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
-    padding: 30px 5%;
+/* --- 4. Section Carrousel (Dynamique) --- */
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    background-color: var(--color-primary); 
+}
+
+.carousel-inner {
+    display: flex;
+    width: 300%; 
+    height: 100%;
+    transition: transform 0.8s ease-in-out; 
+}
+
+.carousel-item {
+    width: calc(100% / 3); /* 100% / Nombre de slides (ici 3) */
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-top: 50px;
+    color: var(--color-text-light); 
+    position: relative;
 }
 
-.footer a {
-    color: var(--color-text-light);
-    margin: 0 10px;
+.carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
 }
 
-.footer a:hover {
-    color: var(--color-secondary);
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    padding: 20px;
+    animation: fadeIn 1.2s ease-out; /* Animation à chaque changement de slide */
 }
 
-/* --- 5. Section Hero --- */
-<main>
-        <section class="hero-carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active" style="background-image: url('assets/images/hero-energy-1.jpg');">
-                    <div class="hero-content">
-                        <h1>Dormez sur vos deux oreilles.</h1>
-                        <h2>SBM Consulting sécurise et optimise l'intégralité de votre budget énergétique professionnel.</h2>
-                        <a href="src/pages/contact.html" class="btn btn-primary">Sécuriser mon Contrat Énergétique</a>
-                    </div>
-                </div>
-                <div class="carousel-item" style="background-image: url('assets/images/hero-energy-2.jpg');">
-                    <div class="hero-content">
-                        <h1>Innovez. Nous veillons sur votre énergie.</h1>
-                        <h2>Avec SBM Consulting, transformez la complexité énergétique en avantage compétitif.</h2>
-                        <a href="src/pages/services.html" class="btn btn-primary">Découvrir nos Solutions</a>
-                    </div>
-                </div>
-                <div class="carousel-item" style="background-image: url('assets/images/hero-energy-3.jpg');">
-                    <div class="hero-content">
-                        <h1>Plus de 10 ans d'expertise à votre service.</h1>
-                        <h2>Nos 3 associés passionnés vous offrent une protection juridique et un suivi sans faille.</h2>
-                        <a href="src/pages/a-propos.html" class="btn btn-primary">Rencontrer l'équipe</a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-indicators">
-                <span class="indicator active"></span>
-                <span class="indicator"></span>
-                <span class="indicator"></span>
-            </div>
-        </section>
-        
-        <section class="pillars-section">
-            </section>
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        <section class="cta-secondary">
-            </section>
-    </main>
+.hero-carousel .hero-content h1 {
+    font-size: 3.5rem;
+    color: var(--color-background); 
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
 
-/* --- 6. Section Les 3 Piliers --- */
+.hero-carousel .hero-content h2 {
+    font-size: 1.8rem;
+    color: var(--color-light-gray);
+    margin-bottom: 30px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 20;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.indicator.active {
+    background-color: var(--color-background); 
+}
+
+/* --- 5. Section Les 3 Piliers (Effet Dynamique) --- */
 .pillars-section {
     padding: 50px 5%;
     text-align: center;
+    background-color: var(--color-light-gray); /* Fond clair pour détacher la section */
 }
 
 .section-title {
@@ -190,6 +219,9 @@ h1, h2, h3, h4 {
     justify-content: space-around;
     gap: 30px;
     flex-wrap: wrap; 
+    margin-top: -80px; /* Remonte la section sous le carrousel pour un effet d'overlap dingue! */
+    position: relative;
+    z-index: 5;
 }
 
 .pillar {
@@ -197,25 +229,25 @@ h1, h2, h3, h4 {
     min-width: 280px;
     padding: 30px;
     background-color: var(--color-background);
-    border: 1px solid #EAEAEA;
-    border-top: 5px solid var(--color-secondary);
-    border-radius: 8px;
+    border-top: 5px solid var(--color-secondary); 
+    border-radius: 12px; /* Coins plus arrondis */
     text-align: left;
     transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombre portée douce */
 }
 
 .pillar:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: translateY(-10px); /* L'effet "flottant" est plus marqué */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); 
 }
 
 .pillar h4 {
     color: var(--color-primary);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-top: 0;
 }
 
-/* --- 7. Section CTA Secondaire --- */
+/* --- 6. Section CTA Secondaire --- */
 .cta-secondary {
     background-color: var(--color-primary);
     color: var(--color-text-light);
@@ -225,41 +257,31 @@ h1, h2, h3, h4 {
 }
 
 .cta-secondary p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 20px;
 }
 
-.cta-secondary .btn-secondary {
-    color: var(--color-background);
-    border-color: var(--color-background);
-}
 
-.cta-secondary .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+/* --- 7. Footer --- */
+.footer {
+    background-color: #111; /* Noir pour le contraste final */
+    color: var(--color-text-light);
+    padding: 30px 5%;
+    text-align: center;
 }
-
 
 /* ======================================= */
 /* ====== MEDIA QUERIES (RÉACTIVITÉ) ===== */
 /* ======================================= */
 
-/* Mobile et Tablettes (Écrans de max 768px de large) */
 @media (max-width: 768px) {
     
-    /* 1. TYPOGRAPHIE ET ESPACEMENTS */
-    h1 {
-        font-size: 2rem; 
-    }
-    h2 {
-        font-size: 1.3rem;
-    }
-    .hero-section {
-        padding: 50px 5%;
-    }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.3rem; }
     
-    /* 2. NAVIGATION */
+    /* NAVIGATION MOBILE */
     .main-nav {
-        display: none; /* Caché par défaut, sera affiché par JS */
+        display: none; 
         width: 100%;
         position: absolute;
         top: 70px;
@@ -269,45 +291,24 @@ h1, h2, h3, h4 {
         z-index: 1000;
     }
     
-    .menu-toggle {
-        display: block; /* Afficher le bouton hamburger */
-    }
+    .menu-toggle { display: block; }
+    .main-nav.open { display: block; } 
     
-    .main-nav.open { 
-        display: block; 
-    } 
-    
-    .main-nav ul {
-        flex-direction: column; 
-        gap: 0; 
-        padding: 10px 0;
-    }
-    
-    .main-nav ul li {
-        border-bottom: 1px solid var(--color-light-gray);
-    }
-    
-    .main-nav a {
-        display: block;
-        padding: 15px 20px;
-        text-align: center;
-    }
+    .main-nav ul { flex-direction: column; gap: 0; padding: 10px 0; }
+    .main-nav ul li { border-bottom: 1px solid var(--color-light-gray); }
+    .main-nav a { display: block; padding: 15px 20px; text-align: center; }
 
-    /* 3. LES 3 PILIERS */
+    /* CARROUSEL MOBILE */
+    .hero-carousel { height: 40vh; } 
+    .hero-carousel .hero-content h1 { font-size: 1.8rem; }
+    .hero-carousel .hero-content h2 { font-size: 1.1rem; }
+    
+    /* PILIERS MOBILE */
     .pillars-container {
         flex-direction: column; 
         gap: 20px;
+        margin-top: -40px; /* Moins d'overlap sur mobile */
     }
-    
-    .pillar {
-        min-width: 100%;
-    }
-    
-    /* 4. SECTIONS À PROPOS et Contact (pour simplifier) */
-    .story-block,
-    .contact-form-container > div:last-child {
-        flex-direction: column !important; 
-        text-align: center;
-    }
+    .pillar { min-width: 100%; }
     
 }
