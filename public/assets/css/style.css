@@ -203,10 +203,10 @@ h1, h2, h3, h4 {
 }
 
 /* --- 5. Section Les 3 Piliers (Effet Dynamique) --- */
-.pillars-section {
-    padding: 50px 5%;
+padding: 50px 5%;
+    padding-top: 5px; /* Ajout d'un petit padding pour donner de l'air en haut */
     text-align: center;
-    background-color: var(--color-light-gray); /* Fond clair pour détacher la section */
+    background-color: var(--color-light-gray);
 }
 
 .section-title {
@@ -219,7 +219,7 @@ h1, h2, h3, h4 {
     justify-content: space-around;
     gap: 30px;
     flex-wrap: wrap; 
-    margin-top: -80px; /* Remonte la section sous le carrousel pour un effet d'overlap dingue! */
+    margin-top: -40px; /* Remonte la section sous le carrousel pour un effet d'overlap dingue! */
     position: relative;
     z-index: 5;
 }
