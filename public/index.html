@@ -11,6 +11,7 @@
     
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script> 
     
 </head>
 
@@ -69,31 +70,35 @@
                 <span class="indicator"></span>
             </div>
         </section>
+        
+        <div class="separator"></div> 
 
-       <section class="pillars-section">
-    <h3 class="section-title">Notre Engagement : 3 Piliers pour Votre Tranquillité</h3>
-    <div class="pillars-container">
-        <article class="pillar">
-            <i class="fas fa-hand-holding-dollar"></i> 
-            <h4>Optimisation des Coûts</h4>
-            <p>Accédez aux meilleures offres du marché et réalisez des économies garanties sur vos factures d'énergie sans effort.</p>
-        </article>
 
-        <article class="pillar">
-            <i class="fas fa-shield-alt"></i> 
-            <h4>Sécurité Juridique Intégrée</h4>
-            <p>Un bouclier légal spécialisé contre les litiges. Vos contrats sont sécurisés, vos droits sont défendus. Zéro mauvaise surprise.</p>
-        </article>
+        <section class="pillars-section">
+            <h3 class="section-title">Notre Engagement : 3 Piliers pour Votre Tranquillité</h3>
+            <div class="pillars-container">
+                
+                <article class="pillar reveal-item"> 
+                    <i class="fas fa-hand-holding-dollar"></i> 
+                    <h4>Optimisation des Coûts</h4>
+                    <p>Accédez aux meilleures offres du marché et réalisez des économies garanties sur vos factures d'énergie sans effort.</p>
+                </article>
 
-        <article class="pillar">
-            <i class="fas fa-headset"></i> 
-            <h4>Proximité & Suivi Continu</h4>
-            <p>Un expert dédié à votre écoute, pour une veille constante du marché et un accompagnement tout au long de la durée du contrat.</p>
-        </article>
-    </div>
-</section>
+                <article class="pillar reveal-item" data-delay="150"> 
+                    <i class="fas fa-shield-alt"></i> 
+                    <h4>Sécurité Juridique Intégrée</h4>
+                    <p>Un bouclier légal spécialisé contre les litiges. Vos contrats sont sécurisés, vos droits sont défendus. Zéro mauvaise surprise.</p>
+                </article>
 
-        <section class="cta-secondary">
+                <article class="pillar reveal-item" data-delay="300"> 
+                    <i class="fas fa-headset"></i> 
+                    <h4>Proximité & Suivi Continu</h4>
+                    <p>Un expert dédié à votre écoute, pour une veille constante du marché et un accompagnement tout au long de la durée du contrat.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-secondary" id="reveal-cta">
             <p>Prêt à transformer vos contraintes énergétiques en avantage compétitif ?</p>
             <a href="src/pages/contact.html" class="btn btn-secondary">Demander un Devis Gratuit</a>
         </section>
