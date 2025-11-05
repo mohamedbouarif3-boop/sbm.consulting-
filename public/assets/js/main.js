@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // ===============================================
-    // 1. GESTION DU MENU MOBILE (Fonctionnalité existante)
+    // 1. GESTION DU MENU MOBILE
     // ===============================================
     const menuToggle = document.getElementById('menu-toggle-btn');
     const mainNavigation = document.getElementById('main-navigation');
@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
             menuToggle.innerHTML = mainNavigation.classList.contains('open') ? '✕' : '☰';
         });
 
-        // Fermer le menu si on clique sur un lien 
         const navLinks = mainNavigation.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -27,7 +26,49 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ===============================================
-    // 2. VALIDATION DU FORMULAIRE DE CONTACT
+    // 2. CARROUSEL D'IMAGES AUTOMATIQUE
+    // ===============================================
+    const carouselInner = document.querySelector('.carousel-inner');
+    const indicators = document.querySelectorAll('.carousel-indicators .indicator');
+    const totalItems = indicators.length;
+    
+    if (carouselInner && totalItems > 0) {
+        let currentIndex = 0;
+        const slideInterval = 6000; // Défilement toutes les 6 secondes
+
+        function updateCarousel() {
+            // Calcule le décalage basé sur l'index actuel
+            carouselInner.style.transform = `translateX(-${currentIndex * 100 / totalItems}%)`;
+            
+            // Mise à jour des indicateurs
+            indicators.forEach((indicator, index) => {
+                indicator.classList.remove('active');
+                if (index === currentIndex) {
+                    indicator.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        }
+
+        // Démarrer le défilement automatique
+        setInterval(nextSlide, slideInterval);
+
+        // Gérer les clics sur les indicateurs
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+    }
+
+
+    // ===============================================
+    // 3. VALIDATION DU FORMULAIRE DE CONTACT
     // ===============================================
     const contactForm = document.querySelector('.contact-form-container form');
     
@@ -35,26 +76,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
         contactForm.addEventListener('submit', function(event) {
             
-            // Empêche l'envoi standard du formulaire pour effectuer la validation
             event.preventDefault(); 
             
-            let isValid = true; // Drapeaux de validation
+            let isValid = true; 
             const inputs = contactForm.querySelectorAll('[required]');
             
-            // Réinitialiser les indicateurs d'erreurs précédents
             inputs.forEach(input => {
                 input.style.border = '1px solid #CCCCCC';
-            });
-            
-            // Boucle de vérification des champs requis
-            inputs.forEach(input => {
                 if (input.value.trim() === '') {
-                    input.style.border = '2px solid red'; // Marquer l'erreur
+                    input.style.border = '2px solid var(--color-accent)'; 
                     isValid = false;
                 }
             });
 
-            // Validation spécifique de l'Email
             const emailInput = document.getElementById('email');
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (emailInput && !emailRegex.test(emailInput.value.trim())) {
@@ -62,31 +96,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 isValid = false;
             }
             
-            // Validation spécifique du Téléphone (simple, vérifie seulement si ce sont des chiffres)
             const phoneInput = document.getElementById('telephone');
-            const phoneRegex = /^[0-9\s-]{8,}$/; // Au moins 8 chiffres ou espace/tiret
+            const phoneRegex = /^[0-9\s-]{8,}$/; 
             if (phoneInput && !phoneRegex.test(phoneInput.value.trim())) {
                 phoneInput.style.border = '2px solid red';
                 isValid = false;
             }
 
 
-            // Si tout est valide
             if (isValid) {
-                // Ici, vous enverriez normalement les données à votre serveur ou service d'email.
-                
                 alert('Félicitations ! Votre demande de tranquillité a été envoyée à SBM Consulting. Nous vous recontactons sous 24h !');
-                
-                // Dé-commenter la ligne suivante pour envoyer réellement le formulaire
-                // contactForm.submit(); 
-                
-                // Pour la démo, on réinitialise le formulaire après le message d'alerte
                 contactForm.reset(); 
-
+                // contactForm.submit(); // Ligne pour l'envoi réel
             } else {
-                alert('Attention : Veuillez corriger les champs en rouge pour valider votre demande.');
+                alert('Attention : Veuillez corriger les champs obligatoires.');
             }
         });
     }
-
 });
