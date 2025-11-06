@@ -9,7 +9,7 @@
     --color-light-gray: #F9F9F9;
     --radius-soft: 10px;    
     --radius-deep: 20px;    
-    --radius-pill: 50px; /* Arrondi pour la pilule */
+    --radius-pill: 50px; 
 }
 
 * {
@@ -22,8 +22,8 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     line-height: 1.6;
     color: var(--color-text-dark);
-    background-color: var(--color-light-gray); /* Fond de page gris clair (comme l'exemple) */
-    padding-top: 120px; /* Espace pour le header fixe flottant */
+    background-color: var(--color-light-gray); 
+    padding-top: 80px; 
 }
 
 a {
@@ -53,46 +53,51 @@ h1, h2, h3, h4, .main-nav a, .btn {
     transition: background-color 0.3s, opacity 0.3s;
     text-align: center;
 }
-.btn-primary { /* Bouton Vert Standard (ex: Hero) */
+.btn-primary { 
     background-color: var(--color-accent); 
     color: var(--color-background);
     border: 2px solid var(--color-accent);
 }
-.btn-secondary { /* Bouton CTA Secondaire */
+.btn-secondary {
     background-color: transparent;
     color: var(--color-text-light); 
     border: 2px solid var(--color-text-light);
 }
 
 
-/* --- 3. Header Flottant (STICKY PILL MENU) --- */
+/* --- 3. Header INTÉGRÉ (LOGO CORRIGÉ) --- */
 .header {
     position: fixed; 
-    top: 20px; /* Flotte à 20px du haut */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%; 
-    max-width: 1100px; /* Largeur maximale */
+    top: 0; 
+    left: 0;
+    width: 100%; 
     z-index: 1000; 
     
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 25px; 
-    min-height: 70px; 
+    padding: 10px 5%; 
+    min-height: 80px; 
     background-color: var(--color-background);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Ombre flottante */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
     
-    border-radius: var(--radius-pill); /* FORME PILULE */
+    border-radius: 0; 
 }
 
-/* Icône de recherche (Nouveau) */
-.nav-left-icon {
-    font-size: 1.2rem;
-    color: var(--color-text-dark);
+/* Icône de recherche (Supprimée) */
+/* .nav-left-icon { display: none; } */
+
+/* Logo (Réactivé) */
+.logo { 
+    display: block; /* S'assure qu'il est visible */
+}
+.logo img {
+    height: 60px; 
+    max-height: 60px;
+    width: auto;
+    object-fit: contain; 
 }
 
-.logo { display: none; } /* On cache l'ancien logo du header */
 
 .main-nav ul {
     list-style: none;
@@ -105,7 +110,7 @@ h1, h2, h3, h4, .main-nav a, .btn {
     font-weight: 600; 
     font-size: 0.9rem;
     padding: 10px 15px;
-    border-bottom: none; /* Supprime l'ancien style de ligne */
+    border-bottom: none; 
     transition: all 0.3s ease;
     border-radius: var(--radius-pill);
 }
@@ -126,9 +131,8 @@ h1, h2, h3, h4, .main-nav a, .btn {
     font-weight: bold;
     color: #555; 
     border: 2px solid transparent;
-    /* Astuce pour la bordure dégradée */
     background-image: linear-gradient(white, white), 
-                      linear-gradient(to right, #00B1A7, #38C172); /* Dégradé Vert/Bleu */
+                      linear-gradient(to right, #00B1A7, #38C172); 
     background-origin: border-box;
     background-clip: content-box, border-box;
     border-radius: var(--radius-pill); 
@@ -138,7 +142,7 @@ h1, h2, h3, h4, .main-nav a, .btn {
 .main-nav .btn-gradient:hover {
     color: #000;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-bottom: none; /* Annule l'effet hover de base */
+    border-bottom: none; 
 }
 
 .menu-toggle {
@@ -187,6 +191,17 @@ h1, h2, h3, h4, .main-nav a, .btn {
     margin-bottom: 25px;
     font-weight: 700;
 }
+.intro-text {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+.btn-large {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
 
 /* --- 5. Séparateur d'Énergie --- */
 .separator {
@@ -274,18 +289,11 @@ h1, h2, h3, h4, .main-nav a, .btn {
 /* ======================================= */
 
 @media (max-width: 992px) {
-    /* Le menu pilule redevient une barre normale sur tablette/mobile */
     .header {
-        width: 100%;
-        top: 0;
-        left: 0;
-        transform: none;
-        border-radius: 0;
         padding: 10px 5%;
     }
-    .main-nav { display: none; } /* Cache le menu desktop */
-    .nav-left-icon { display: none; } /* Cache l'icône de recherche */
-    .menu-toggle { display: block; } /* Affiche le hamburger */
+    .main-nav { display: none; } 
+    .menu-toggle { display: block; } 
 
     .hero-split {
         flex-direction: column; 
