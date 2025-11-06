@@ -23,7 +23,7 @@ body {
     line-height: 1.6;
     color: var(--color-text-dark);
     background-color: var(--color-background);
-    padding-top: 80px; /* GARANTIT L'ESPACE POUR LE HEADER FIXE */
+    padding-top: 80px; /* Espace pour le header fixe */
 }
 
 a {
@@ -135,10 +135,10 @@ h1, h2, h3, h4, .main-nav a, .btn {
     z-index: 1001; 
 }
 
-/* --- 4. Section Hero Split-Screen (Hauteur Corrigée & Optimisation Accroche) --- */
+/* --- 4. Section Hero Split-Screen (Optimisation Accroche et Centrage) --- */
 .hero-split {
     display: flex;
-    min-height: 75vh; /* HAUTEUR FIXÉE ET RÉDUITE */
+    min-height: 75vh; /* HAUTEUR RÉDUITE */
     width: 100%;
     background-color: var(--color-light-gray);
 }
@@ -158,7 +158,7 @@ h1, h2, h3, h4, .main-nav a, .btn {
 }
 .hero-content-inner {
     max-width: 550px; 
-    text-align: left; 
+    text-align: center; /* MODIFIÉ : TEXTE CENTRÉ POUR L'IMPACT */
 }
 .accent-title {
     font-size: 4.2rem;
@@ -274,10 +274,11 @@ h1, h2, h3, h4, .main-nav a, .btn {
     /* Split-Screen passe en colonne */
     .hero-split {
         flex-direction: column; 
-        min-height: auto; /* Permet au contenu de s'adapter */
+        min-height: auto; 
     }
     .hero-left {
         order: 2; 
+        text-align: center; /* Centrer le texte sur l'écran entier */
     }
     .hero-right {
         order: 1; 
