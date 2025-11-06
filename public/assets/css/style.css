@@ -1,12 +1,16 @@
-/* --- 1. Variables & Reset --- */
+/* --- 1. Variables & Reset (DARK MODE) --- */
 :root {
-    --color-primary: #004A7F;     
-    --color-secondary: #00B1A7;   
-    --color-accent: #38C172;      
-    --color-text-dark: #333333;
-    --color-text-light: #F4F4F4;
-    --color-background: #FFFFFF;
-    --color-light-gray: #F9F9F9;
+    /* Palette : Bleu Nuit (Fond) & Vert/Cyan (Néon) */
+    --color-primary: #FFFFFF;     /* Blanc pour les Titres Principaux */
+    --color-secondary: #00B1A7;   /* Vert-Bleu Émeraude (Accent 1) */
+    --color-accent: #38C172;      /* Vert Vif (Accent 2 / CTA) */
+    
+    --color-text-dark: #b0c4de;   /* Bleu très clair (Texte courant) */
+    --color-text-light: #F4F4F4;  /* Blanc cassé */
+    
+    --color-background: #0a192f;  /* FOND BLEU NUIT (Le "Tech") */
+    --color-light-gray: #112240;  /* FOND DES CARTES (Bleu plus clair) */
+    
     --radius-soft: 10px;    
     --radius-deep: 20px;    
     --radius-pill: 50px; 
@@ -21,29 +25,30 @@
 body {
     font-family: 'Roboto', Arial, sans-serif;
     line-height: 1.6;
-    color: var(--color-text-dark);
-    background-color: var(--color-light-gray); 
+    color: var(--color-text-dark); /* Texte par défaut (Bleu clair) */
+    background-color: var(--color-background); /* FOND BLEU NUIT */
     padding-top: 80px; 
 }
 
 a {
     text-decoration: none;
-    color: var(--color-primary);
+    color: var(--color-accent-cyan); /* Liens par défaut en Cyan */
     transition: color 0.3s;
 }
 
 a:hover {
-    color: var(--color-secondary);
+    color: var(--color-accent); /* Liens au survol en Vert */
 }
 
+/* Polices des TITRES et CTA (Montserrat) */
 h1, h2, h3, h4, .main-nav a, .btn { 
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 1rem;
     line-height: 1.2;
-    color: var(--color-primary);
+    color: var(--color-primary); /* Titres en BLANC */
 }
 
-/* --- 2. Boutons (Reste le même) --- */
+/* --- 2. Boutons (Reste le même, mais va "briller" sur fond sombre) --- */
 .btn {
     display: inline-block;
     padding: 12px 25px;
@@ -55,17 +60,24 @@ h1, h2, h3, h4, .main-nav a, .btn {
 }
 .btn-primary { 
     background-color: var(--color-accent); 
-    color: var(--color-background);
+    color: #0a192f; /* Texte sombre sur bouton clair */
     border: 2px solid var(--color-accent);
+    font-weight: bold;
+}
+.btn-primary:hover {
+    background-color: #2D9657; 
+    opacity: 0.9;
 }
 .btn-secondary {
     background-color: transparent;
     color: var(--color-text-light); 
     border: 2px solid var(--color-text-light);
 }
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 
-
-/* --- 3. Header INTÉGRÉ (LOGO CORRIGÉ) --- */
+/* --- 3. Header Fixe (STICKY MENU DARK) --- */
 .header {
     position: fixed; 
     top: 0; 
@@ -78,18 +90,8 @@ h1, h2, h3, h4, .main-nav a, .btn {
     align-items: center;
     padding: 10px 5%; 
     min-height: 80px; 
-    background-color: var(--color-background);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-    
-    border-radius: 0; 
-}
-
-/* Icône de recherche (Supprimée) */
-/* .nav-left-icon { display: none; } */
-
-/* Logo (Réactivé) */
-.logo { 
-    display: block; /* S'assure qu'il est visible */
+    background-color: var(--color-background); /* Fond sombre */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4); /* Ombre plus marquée */
 }
 .logo img {
     height: 60px; 
@@ -97,8 +99,6 @@ h1, h2, h3, h4, .main-nav a, .btn {
     width: auto;
     object-fit: contain; 
 }
-
-
 .main-nav ul {
     list-style: none;
     display: flex;
@@ -106,7 +106,7 @@ h1, h2, h3, h4, .main-nav a, .btn {
     gap: 30px; 
 }
 .main-nav a {
-    color: var(--color-text-dark); 
+    color: var(--color-text-dark); /* Texte de lien (Bleu clair) */
     font-weight: 600; 
     font-size: 0.9rem;
     padding: 10px 15px;
@@ -115,50 +115,46 @@ h1, h2, h3, h4, .main-nav a, .btn {
     border-radius: var(--radius-pill);
 }
 
-/* Lien Actif (Pilule Noire) */
+/* Lien Actif (Pilule Blanche/Texte Sombre) */
 .main-nav a.active {
-    background-color: #333; 
-    color: var(--color-background); 
+    background-color: var(--color-primary); /* Pilule BLANCHE */
+    color: var(--color-background); /* Texte Bleu Nuit */
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
 .main-nav a:hover:not(.active):not(.btn-gradient) {
-     color: var(--color-secondary); 
+     color: var(--color-primary); /* Survol en Blanc */
      border-bottom: none;
 }
 
-/* Bouton Contact (Dégradé) */
+/* Bouton Contact (Dégradé sur fond sombre) */
 .main-nav .btn-gradient {
     font-weight: bold;
-    color: #555; 
+    color: var(--color-accent); /* Texte Vert */
     border: 2px solid transparent;
-    background-image: linear-gradient(white, white), 
-                      linear-gradient(to right, #00B1A7, #38C172); 
+    background-image: linear-gradient(var(--color-background), var(--color-background)), /* Fond sombre */
+                      linear-gradient(to right, #00B1A7, #38C172); /* Dégradé Vert/Bleu */
     background-origin: border-box;
     background-clip: content-box, border-box;
     border-radius: var(--radius-pill); 
     padding: 10px 20px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.05);
 }
 .main-nav .btn-gradient:hover {
-    color: #000;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    color: var(--color-primary);
+    box-shadow: 0 0 15px rgba(56, 193, 114, 0.5); /* Effet "Néon" */
     border-bottom: none; 
 }
 
 .menu-toggle {
     display: none; 
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: var(--color-primary);
-    z-index: 1001; 
+    color: var(--color-primary); /* Icône hamburger en Blanc */
 }
 
-/* --- 4. Section Hero Split-Screen --- */
+/* --- 4. Section Hero Split-Screen (DARK MODE) --- */
 .hero-split {
     display: flex;
     min-height: 75vh; 
     width: 100%;
-    background-color: var(--color-light-gray);
+    background-color: var(--color-background); /* Fond sombre */
 }
 .hero-left {
     flex: 1; 
@@ -173,21 +169,22 @@ h1, h2, h3, h4, .main-nav a, .btn {
     background-position: center;
     min-height: 400px;
     border-bottom-left-radius: var(--radius-deep); 
+    opacity: 0.7; /* Léger fondu de l'image dans le décor */
 }
 .hero-content-inner {
     max-width: 550px; 
-    text-align: left; 
+    text-align: center; /* Texte centré */
 }
 .accent-title {
     font-size: 4.2rem;
-    color: var(--color-primary);
+    color: var(--color-primary); /* Blanc */
     margin-bottom: 15px;
     line-height: 1.0;
     font-weight: 700;
 }
 .hero-left h2 {
     font-size: 2.0rem;
-    color: var(--color-secondary);
+    color: var(--color-accent-cyan); /* Cyan */
     margin-bottom: 25px;
     font-weight: 700;
 }
@@ -196,12 +193,6 @@ h1, h2, h3, h4, .main-nav a, .btn {
     margin-bottom: 30px;
     line-height: 1.6;
 }
-.btn-large {
-    padding: 15px 30px;
-    font-size: 1.1rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
 
 /* --- 5. Séparateur d'Énergie --- */
 .separator {
@@ -209,15 +200,16 @@ h1, h2, h3, h4, .main-nav a, .btn {
     height: 3px; 
     background-color: var(--color-accent); 
     margin: 0 auto; 
+    box-shadow: 0 0 10px rgba(56, 193, 114, 0.7); /* Effet Néon Vert */
 }
 
 
-/* --- 6. Section Les 3 Piliers --- */
+/* --- 6. Section Les 3 Piliers (CARTES SOMBRES) --- */
 .pillars-section {
     padding: 50px 5%;
     padding-top: 50px; 
     text-align: center;
-    background-color: var(--color-light-gray); 
+    background-color: var(--color-background); /* Fond sombre */
 }
 .pillars-container {
     display: flex;
@@ -232,19 +224,19 @@ h1, h2, h3, h4, .main-nav a, .btn {
     flex: 1;
     min-width: 280px;
     padding: 30px;
-    background-color: var(--color-background);
+    background-color: var(--color-light-gray); /* Fond de carte bleu nuit clair */
     border-top: 5px solid var(--color-secondary); 
     border-radius: var(--radius-deep); 
     text-align: left;
     transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Ombre plus visible */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 .pillar:hover {
     transform: translateY(-10px); 
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); 
+    box-shadow: 0 15px 40px rgba(0, 177, 167, 0.2); /* Ombre Cyan au survol */
 }
 
 /* --- 7. Icônes des 3 Piliers --- */
@@ -269,7 +261,7 @@ h1, h2, h3, h4, .main-nav a, .btn {
 
 /* --- 8. Section CTA Secondaire et Footer --- */
 .cta-secondary {
-    background-color: var(--color-primary);
+    background-color: var(--color-light-gray); /* Fond carte */
     color: var(--color-text-light);
     padding: 40px 5%;
     text-align: center;
@@ -278,10 +270,16 @@ h1, h2, h3, h4, .main-nav a, .btn {
     border-top-right-radius: var(--radius-deep); 
 }
 .footer {
-    background-color: #111; 
-    color: var(--color-text-light);
+    background-color: #000; /* Noir pur pour le footer */
+    color: var(--color-text-dark); /* Texte gris clair */
     padding: 30px 5%;
     text-align: center;
+}
+.footer a {
+    color: var(--color-text-dark);
+}
+.footer a:hover {
+    color: var(--color-accent);
 }
 
 /* ======================================= */
@@ -327,7 +325,7 @@ h1, h2, h3, h4, .main-nav a, .btn {
         position: absolute; 
         top: 70px; 
         left: 0; 
-        background-color: var(--color-background); 
+        background-color: var(--color-light-gray); /* Fond sombre */
         box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
         z-index: 1000; 
         border-bottom-left-radius: var(--radius-soft); 
@@ -339,7 +337,7 @@ h1, h2, h3, h4, .main-nav a, .btn {
         padding: 10px 0; 
     }
     .main-nav a.active {
-        background-color: var(--color-light-gray);
-        color: var(--color-primary);
+        background-color: var(--color-accent); /* Vert pour l'actif mobile */
+        color: var(--color-background);
     }
 }
